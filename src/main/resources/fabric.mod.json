@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "ex_snowball",
+	"version": "0.1",
+	"name": "ex_snowball",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Yan SB"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/ex_snowball/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"name.ex_snowball.ExSnowball"
+		],
+		"client": [
+			"name.ex_snowball.ExSnowballClient"
+		],
+		"fabric-datagen": [
+			"name.ex_snowball.ExSnowballDataGenerator"
+		]
+	},
+	"mixins": [
+		"ex_snowball.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.6",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

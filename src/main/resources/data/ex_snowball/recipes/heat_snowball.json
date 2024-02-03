@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " GR",
+    "GRW",
+    " GR"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:snowball"
+    },
+    "R": {
+      "item": "minecraft:copper_ingot"
+    },
+    "G": {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "result": {
+    "item": "ex_snowball:heat_snowball"
+  }
+}
