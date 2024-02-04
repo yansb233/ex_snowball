@@ -1,5 +1,6 @@
 package name.ex_snowball;
 
+import name.ex_snowball.registry.ModEntities;
 import name.ex_snowball.registry.ModItemGroups;
 import name.ex_snowball.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
@@ -22,5 +23,6 @@ public class ExSnowball implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 		ModItems.registerModItems();
 		ModItemGroups.regModItemGroups();
+		ModEntities.regModEntity();
 	}
 }
