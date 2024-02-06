@@ -1,12 +1,13 @@
 package name.ex_snowball.item;
 
-import name.ex_snowball.ExSnowball;
+import name.ex_snowball.entity.APCRSnowballEntity;
 import name.ex_snowball.entity.HEATSnowballlEntity;
 import name.ex_snowball.entity.HeavySnowballEntity;
+import name.ex_snowball.entity.LightningSnowballEntity;
 import name.ex_snowball.registry.ModEntities;
-import name.ex_snowball.registry.ModItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.thrown.SnowballEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -34,11 +35,15 @@ public class BaseSnowballItem extends Item {
             ThrownItemEntity snowballEntity;
             if (types == ModEntities.HEAVY_SNOWBALL_ENTITY_TYPE){
                 snowballEntity = new HeavySnowballEntity(user,world);
-            }else if (types == ModEntities.HEAT_SNOWBALL_ENTITY_TYPE){
+            } else if (types == ModEntities.HEAT_SNOWBALL_ENTITY_TYPE){
                 snowballEntity = new HEATSnowballlEntity(user,world);
+            } else if (types == ModEntities.APCR_SNOWBALL_ENTITY_TYPE){
+                snowballEntity = new APCRSnowballEntity(user,world);
             }
-            else {
-                snowballEntity = new HeavySnowballEntity(user,world);
+            else if (types == ModEntities.LIGHTNING_SNOWBALL_ENTITY_TYPE){
+                snowballEntity = new LightningSnowballEntity(user,world);
+            }else {
+                snowballEntity = new SnowballEntity(world, user);
             }
             snowballEntity.setItem(itemStack);
             snowballEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 1.5f, 1.0f);

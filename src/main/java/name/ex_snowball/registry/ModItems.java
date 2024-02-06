@@ -16,9 +16,9 @@ public class ModItems {
 
     //注册区域
     public static final Item HEAVY_SNOWBALL = registerItem("heavy_snowball", new BaseSnowballItem(new FabricItemSettings().maxCount(64),ModEntities.HEAVY_SNOWBALL_ENTITY_TYPE),ModItemGroups.EX_SNOWBALL_KEY,ItemGroups.COMBAT);
-    public static final Item APCR_SNOWBALL = registerItem("apcr_snowball", new BaseSnowballItem(new FabricItemSettings().maxCount(64),ModEntities.HEAVY_SNOWBALL_ENTITY_TYPE),ModItemGroups.EX_SNOWBALL_KEY,ItemGroups.COMBAT);
+    public static final Item APCR_SNOWBALL = registerItem("apcr_snowball", new BaseSnowballItem(new FabricItemSettings().maxCount(64),ModEntities.APCR_SNOWBALL_ENTITY_TYPE),ModItemGroups.EX_SNOWBALL_KEY,ItemGroups.COMBAT);
     public static final Item HEAT_SNOWBALL = registerItem("heat_snowball", new BaseSnowballItem(new FabricItemSettings().maxCount(64),ModEntities.HEAT_SNOWBALL_ENTITY_TYPE),ModItemGroups.EX_SNOWBALL_KEY,ItemGroups.COMBAT);
-    public static final Item LIGHTNING_SNOWBALL = registerItem("lightning_snowball",new BaseSnowballItem(new FabricItemSettings().maxCount(64),ModEntities.HEAVY_SNOWBALL_ENTITY_TYPE),ModItemGroups.EX_SNOWBALL_KEY,ItemGroups.COMBAT);
+    public static final Item LIGHTNING_SNOWBALL = registerItem("lightning_snowball",new BaseSnowballItem(new FabricItemSettings().maxCount(64),ModEntities.LIGHTNING_SNOWBALL_ENTITY_TYPE),ModItemGroups.EX_SNOWBALL_KEY,ItemGroups.COMBAT);
     //注册区域
     public static Item registerItem(String name, Item item, RegistryKey<ItemGroup>... keys){
         Item registeredItem = Registry.register(Registries.ITEM, new Identifier(ExSnowball.MOD_ID, name), item);

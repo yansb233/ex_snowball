@@ -2,13 +2,16 @@ package name.ex_snowball.entity;
 
 import name.ex_snowball.registry.ModEntities;
 import name.ex_snowball.registry.ModItems;
-import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityStatuses;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.particle.ItemStackParticleEffect;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -27,7 +30,29 @@ public class HEATSnowballlEntity extends ThrownItemEntity {
     public HEATSnowballlEntity(LivingEntity livingEntity, World world) {
         super(ModEntities.HEAT_SNOWBALL_ENTITY_TYPE, livingEntity, world);
     }
+    private ParticleEffect getParticleParameters() {
+        ItemStack itemStack = this.getItem();
+        return itemStack.isEmpty() ? ParticleTypes.FLAME : new ItemStackParticleEffect(ParticleTypes.ITEM, itemStack);
+    }
 
+    private Double random_XYZ(){
+        double x = getWorld().random.nextDouble();
+        if (getWorld().random.nextBoolean()){
+            x = -x;
+        }
+        return x*0.25;
+    }
+
+    @Override
+    public void handleStatus(byte status) {
+        super.handleStatus(status);
+        if (status == EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES) {
+            ParticleEffect particleEffect = this.getParticleParameters();
+            for (int i = 0; i < 25; ++i) {
+                this.getWorld().addParticle(particleEffect, this.getX(), this.getY(), this.getZ(), random_XYZ(), random_XYZ(), random_XYZ());
+            }
+        }
+    }
     Vec3d vec;
 
     @Override
